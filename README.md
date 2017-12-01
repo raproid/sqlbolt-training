@@ -1,6 +1,9 @@
 # SQL Exercises 
 Training on SQL. Received at https://sqlbolt.com on 1 Dec, 2017.
 
+Info for the viewer: The problems are not stated explicitly as I'm gulping knowledge in chunks to build the skill and understanding.
+If you care what kind of problems I encountered during the training, please address the respective links I provided on each topic.
+
 
 ## SQL Lesson 1: SELECT queries 101 at https://sqlbolt.com/lesson/select_queries_introduction
 
