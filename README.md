@@ -1,5 +1,5 @@
 # SQL Exercises 
-Training on SQL. Performed at https://sqlbolt.com between 1 Dec, 2017 and 2 Dec, 2017.
+Training on SQL. Received at https://sqlbolt.com on 1 Dec, 2017.
 
 
 ## SQL Lesson 1: SELECT queries 101 at https://sqlbolt.com/lesson/select_queries_introduction
@@ -126,32 +126,71 @@ SELECT Building, SUM(Years_employed) AS Total__of_Years_Employed FROM Employees 
 
 ANSWERS:
 
-SELECT COUNT(*) FROM Employees WHERE Role IS NOT NULL AND Role = "Artist";
+SELECT COUNT(*) FROM Employees WHERE Role IS NOT NULL AND Role = 'Artist";
 
 SELECT DISTINCT Role, COUNT(*) AS Count FROM Employees WHERE Name IS NOT NULL GROUP BY Role;
 
-SELECT Role, SUM(Years_employed) AS Total_Years_Employed FROM Employees WHERE Role = "Engineer";
+SELECT Role, SUM(Years_employed) AS Total_Years_Employed FROM Employees WHERE Role = 'Engineer';
 
 
 ## SQL Lesson 12: Order of execution of a Query at https://sqlbolt.com/lesson/select_queries_order_of_execution
 
 ANSWERS:
 
+SELECT Director, COUNT(*) AS Number_of_Movies FROM Movies INNER JOIN Boxoffice ON Movies.Id = Boxoffice.Movie_id WHERE TITLE IS NOT NULL GROUP BY Director;
+
+SELECT Director, SUM(Domestic_sales + International_sales) AS Total_Sales FROM Movies INNER JOIN Boxoffice ON Movies.Id = Boxoffice.Movie_id GROUP BY Director;
 
 
+## SQL Lesson 13: Inserting rows at https://sqlbolt.com/lesson/inserting_rows
+
+ANSWERS:
+
+INSERT INTO Movies (Title, Director, Year, Length_minutes) VALUES ('Toy Story 4', 'John Lasseter', 1995, 81);
+
+INSERT INTO Boxoffice (Movie_id, Rating, Domestic_sales, International_sales) VALUES (16, 8.7, 340000000, 270000000);
 
 
+## SQL Lesson 14: Updating rows at https://sqlbolt.com/lesson/updating_rows
+
+ANSWERS:
+
+UPDATE Movies SET Director = 'John Lasseter' WHERE Id = 2;
+
+UPDATE Movies SET Year = 1999 WHERE Id = 3;
+
+UPDATE Movies SET Title = 'Toy Story 3', Director = 'Lee Unkrich' WHERE Id = 11;
 
 
+## SQL Lesson 15: Deleting rows at https://sqlbolt.com/lesson/deleting_rows
+
+ANSWERS:
+
+DELETE FROM Movies WHERE Year < 2005;
+
+DELETE FROM Movies WHERE Director = 'Andrew Stanton';
 
 
+## SQL Lesson 16: Creating tables at https://sqlbolt.com/lesson/creating_tables
+
+ANSWERS:
+
+CREATE TABLE IF NOT EXISTS Database (Name STRING, Version FLOAT, Download_count INTEGER);
 
 
+## SQL Lesson 17: Altering tables at https://sqlbolt.com/lesson/altering_tables
+
+ANSWERS:
+
+ALTER TABLE Movies ADD Aspect_ratio FLOAT;
+
+ALTER TABLE Movies ADD Language TEXT DEFAULT "English";
 
 
+## SQL Lesson 18: Dropping tables at https://sqlbolt.com/lesson/dropping_tables
 
+ANSWERS:
 
+DROP TABLE IF EXISTS Movies;
 
-
-
-
+DROP TABLE IF EXISTS Boxoffice;
